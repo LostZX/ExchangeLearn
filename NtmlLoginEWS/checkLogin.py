@@ -1,8 +1,6 @@
 from impacket import ntlm
 import requests
 import base64
-import re
-import binascii
 from requests_ntlm import HttpNtlmAuth
 
 
