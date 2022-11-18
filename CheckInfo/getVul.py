@@ -1,7 +1,11 @@
 from getVersion import get_version
 from colorama import Fore
+import sys
 
 exchange_servers = [
+{"server":"Exchange Server 2019 CU12 Nov22SU","date":"11/8/2022","version":"15.2.1118.20","short":"15.2.1118"},  
+{"server":"Exchange Server 2019 CU12 Oct22SU","date":"10/11/2022","version":"15.2.1118.15","short":"15.2.1118"},
+{"server":"Exchange Server 2019 CU12 Aug22SU","date":"08/09/2022","version":"15.2.1118.12","short":"15.2.1118"},
 {"server":"Exchange Server 2019 CU12 May22SU","date":"05/10/2022","version":"15.2.1118.9","short":"15.2.1118"},
 {"server":"Exchange Server 2019 CU12 (2022H1)","date":"04/20/2022","version":"15.2.1118.7","short":"15.2.1118"},
 {"server":"Exchange Server 2019 CU11 May22SU","date":"05/10/2022","version":"15.2.986.26","short":"15.2.986"},
@@ -41,6 +45,9 @@ exchange_servers = [
 {"server":"Exchange Server 2019 RTM Mar21SU","date":"03/02/2021","version":"15.2.221.18","short":"15.2.221"},
 {"server":"Exchange Server 2019 RTM","date":"10/22/2018","version":"15.2.221.12","short":"15.2.221"},
 {"server":"Exchange Server 2019 Preview","date":"07/24/2018","version":"15.2.196.0","short":"15.2.196"},
+{"server":"Exchange Server 2016 CU23 Nov22SU","date":"11/08/2022","version":"15.1.2507.16","short":"15.1.2507"},
+{"server":"Exchange Server 2016 CU23 Oct22SU","date":"10/11/2022","version":"15.1.2507.13","short":"15.1.2507"},
+{"server":"Exchange Server 2016 CU23 Aug22SU","date":"08/09/2022","version":"15.1.2507.12","short":"15.1.2507"},
 {"server":"Exchange Server 2016 CU23 May22SU","date":"05/10/2022","version":"15.1.2507.9","short":"15.1.2507"},
 {"server":"Exchange Server 2016 CU23 (2022H1)","date":"04/20/2022","version":"15.1.2507.6","short":"15.1.2507"},
 {"server":"Exchange Server 2016 CU22 May22SU","date":"05/10/2022","version":"15.1.2375.28","short":"15.1.2375"},
@@ -94,6 +101,9 @@ exchange_servers = [
 {"server":"Exchange Server 2016 CU1","date":"03/15/2016","version":"15.1.396.30","short":"15.1.396"},
 {"server":"Exchange Server 2016 RTM","date":"10/01/2015","version":"15.1.225.42","short":"15.1.225"},
 {"server":"Exchange Server 2016 Preview","date":"07/22/2015","version":"15.1.225.16","short":"15.1.225"},
+{"server":"Exchange Server 2013 CU23 Nov22SU","date":"11/8/2022","version":"15.0.1497.44","short":"15.0.1497"},
+{"server":"Exchange Server 2013 CU23 Oct22SU","date":"10/11/2022","version":"15.0.1497.42","short":"15.0.1497"},
+{"server":"Exchange Server 2013 CU23 Aug22SU","date":"08/09/2022","version":"15.0.1497.40","short":"15.0.1497"},
 {"server":"Exchange Server 2013 CU23 May22SU","date":"05/10/2022","version":"15.0.1497.36","short":"15.0.1497"},
 {"server":"Exchange Server 2013 CU23 Mar22SU","date":"03/08/2022","version":"15.0.1497.33","short":"15.0.1497"},
 {"server":"Exchange Server 2013 CU23 Jan22SU","date":"01/11/2022","version":"15.0.1497.28","short":"15.0.1497"},
@@ -133,14 +143,15 @@ exchange_servers = [
 ]
 
 vularray = [
-{"cve":"CVE-2020-0688", "date":"02/11/2020"},
-{"cve":"CVE-2021-26855+CVE-2021-27065","date":"03/02/2021"},
-{"cve":"CVE-2021-28482", "date":"04/13/2021"},
-{"cve":"CVE-2021-34473+CVE-2021-34523+CVE-2021-31207", "date":"04/13/2021"},
-{"cve":"CVE-2021-31195+CVE-2021-31196", "date":"05/11/2020"},
-{"cve":"CVE-2021-31206", "date":"07/13/2021"},
-{"cve":"CVE-2021-42321", "date":"11/09/2021"},
-{"cve":"CVE-2022-23277", "date":"03/08/2022"}
+    {"cve":"CVE-2020-0688", "date":"02/11/2020"},
+    {"cve":"CVE-2021-26855+CVE-2021-27065","date":"03/02/2021"},
+    {"cve":"CVE-2021-28482", "date":"04/13/2021"},
+    {"cve":"CVE-2021-34473+CVE-2021-34523+CVE-2021-31207", "date":"04/13/2021"},
+    {"cve":"CVE-2021-31195+CVE-2021-31196", "date":"05/11/2020"},
+    {"cve":"CVE-2021-31206", "date":"07/13/2021"},
+    {"cve":"CVE-2021-42321", "date":"11/09/2021"},
+    {"cve":"CVE-2022-23277", "date":"03/08/2022"},
+    {"cve":"CVE-2022-41082", "date":"09/30/2022"}
 ]
 
 
@@ -173,4 +184,6 @@ def vulscan(date):
 
 
 if __name__ == "__main__":
-    getVul("192.168.52.149")
+    url = sys.argv[1]
+    getVul(url)
+

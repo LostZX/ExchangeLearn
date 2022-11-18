@@ -1,6 +1,7 @@
 from requests_html import HTMLSession
 from colorama import Fore
 import requests
+import sys
 
 requests.packages.urllib3.disable_warnings()
 
@@ -86,4 +87,5 @@ def method4(url, short_version):
     print("[-] brute ecp not found complete version")
 
 if __name__ == "__main__":
-    get_version("mail.delacruzny.com")
+    url = sys.argv[2]
+    get_version(url)
