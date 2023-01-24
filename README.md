@@ -114,6 +114,16 @@ ts.Write webshell
 ts.close
 ```
 
+### PrivExchange
+
+https://github.com/Ridter/Exchange2domain
+
+![PrivExchange](./img/pic4.png)
+
+还原exchange$
+
+aclpwn -r aclpwn-x.restore
+
 ## exchange管理
 
 
